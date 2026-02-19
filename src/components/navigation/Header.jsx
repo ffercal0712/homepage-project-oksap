@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { LanguageSelect } from "./LanguageSelect.jsx";
-import {Logo} from "../Logo.jsx";
-import {NavMenu} from "./NavMenu.jsx";
+import { Logo } from "../Logo.jsx";
+import { NavMenu } from "./NavMenu.jsx";
 
 export function Header() {
     const [scrolled, setScrolled] = useState(false);
