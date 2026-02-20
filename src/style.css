@@ -13,6 +13,8 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* propio */
+
   html, body, #root {
     width: 100%;
     margin: 0;
@@ -24,13 +26,14 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: 0 -150px;
   }
 
   * {
     box-sizing: border-box;
   }
 
-  /* propio */
+  /* Para: Cabecera/menú de navegación superior */
 
   .header {
     display: flex;
@@ -46,10 +49,11 @@
     background: transparent;
     transition: all 0.25s ease;
     height: 92px;
+    font-family: "Montserrat", sans-serif;
   }
 
   .header-scrolled {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(12, 9, 18, 0.95);
     padding: 20px 40px 10px 40px;
     height: 75px;
   }
@@ -90,7 +94,9 @@
     filter: brightness(35%);
   }
 
-  .dropbtn {
+  /* Para: Selector DDL de idioma */
+
+  .lang-ddl-btn {
     background: rgba(255, 255, 255, 0);
     color: white;
     font-weight: bold;
@@ -103,12 +109,12 @@
     transition: filter 0.2s;
   }
 
-  .dropdown {
+  .language-ddl {
     position: relative;
     display: inline-block;
   }
 
-  .dropdown-content {
+  .lang-ddl-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -117,7 +123,7 @@
     z-index: 1;
   }
 
-  .dropdown-content a {
+  .lang-ddl-content a {
     color: #515151;
     padding: 8px 12px;
     text-decoration: none;
@@ -127,19 +133,174 @@
     font-weight: bold;
   }
 
-  .dropdown-content a:hover {
+  .lang-ddl-content a:hover {
     background-color: #f1f1f1
   }
 
-  .dropdown:hover .dropdown-content {
+  .language-ddl:hover .lang-ddl-content {
     display: block;
   }
 
-  .dropdown:hover .dropbtn {
+  .language-ddl:hover .lang-ddl-btn {
     filter: brightness(35%);
   }
 
-  /* generado */
+  /* Para: Sección de la portada */
+
+  #seccion-portada {
+    padding-top: 190px;
+    padding-bottom: 190px;
+  }
+
+  #seccion-portada a {
+    display: block;
+    width: fit-content;
+    margin: auto;
+  }
+
+  #seccion-portada h3 {
+    text-shadow: 2px 2px 0 #808080;
+    font-size: 60px;
+    font-weight: 800;
+    text-align: center;
+
+    margin: 0 0 20px 0;
+    padding: 0;
+  }
+
+  #seccion-portada h6 {
+    text-shadow: 2px 3px 0 #4c4c4c;
+    text-align: center;
+    margin-top: 0;
+
+    font-size: 32px;
+    line-height: 1;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #b8b8b8;
+  }
+
+  #img-ia {
+    display: block;
+    margin: auto;
+    vertical-align: middle;
+    max-width: 500px;
+    height: auto;
+    text-align: center;
+    opacity: 0.9;
+  }
+
+  #logo-portada {
+    display: block;
+    margin: auto;
+    max-width: 700px;
+    opacity: 0.9;
+  }
+
+  /* Para: Sección de servicios */
+
+  #grid-servicios {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .elem-servicios, .elem-servicios-central {
+    background-color: #0b0b12;
+    padding: 30px 20px;
+  }
+
+  .elem-servicios-central {
+    background-image: linear-gradient(#0a0a0e, #1e1e27, #0a0a0e);
+  }
+
+  .elem-servicios img, .elem-servicios-central img {
+    max-height: 44px;
+    display: inline-block;
+    line-height: 1;
+  }
+
+  .elem-servicios h4, .elem-servicios-central h4 {
+    font-weight: 400;
+    margin: 15px 0;
+    font-size: 18px;
+    filter: brightness(50%);
+  }
+
+  .elem-servicios p, .elem-servicios-central p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    margin-bottom: 0;
+  }
+
+  /* Para: Sección sobre nosotros */
+
+  #about-us {
+    background-color: #f8f8f8;
+    padding: 60px 0 40px 0;
+  }
+
+  #about-us h3 {
+    margin: 0;
+    text-align: center;
+
+    font-size: 32px;
+    color: #3569cb;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  #about-us h3::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+  }
+
+  #about-us h3::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #616261;
+    bottom: 0;
+    left: calc(50% - 20px);
+  }
+
+  #about-us-cards {
+    display: grid;
+    grid-template-columns: 255px 255px 255px 255px;
+    gap: 30px;
+  }
+
+  .about-us-card {
+    background: white;
+  }
+
+  .card-img {
+    max-width: 255px;
+    max-height: 255px;
+  }
+
+  .card-icon {
+    color: #ffac00;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+    padding: 0;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  /* Generado por WebStorm */
 
   a {
     font-weight: 500;

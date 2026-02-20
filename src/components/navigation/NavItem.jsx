@@ -1,3 +1,12 @@
+/**
+ * Elemento que representa un enlace para usar en el
+ * menú de navegación superior de la página principal.
+ *
+ * @param link enlace para el elemento
+ * @param texto nombre del enlace
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
 export function NavItem({ link, texto }) {
     return (
         <>

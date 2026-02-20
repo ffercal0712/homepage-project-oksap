@@ -1,5 +1,11 @@
-import {NavItem} from "./NavItem.jsx";
+import { NavItem } from "./NavItem.jsx";
 
+/**
+ * Menú de navegación superior para la página principal.
+ *
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
 export function NavMenu() {
     return (
         <ul className="header-list">
