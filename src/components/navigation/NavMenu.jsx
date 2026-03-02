@@ -9,11 +9,11 @@ import { NavItem } from "./NavItem.jsx";
 export function NavMenu() {
     return (
         <ul className="header-list">
-            <NavItem link={"#"} texto={"HOME"} />
-            <NavItem link={"#"} texto={"AI VIDEOS"} />
-            <NavItem link={"#"} texto={"BLOG"} />
-            <NavItem link={"#"} texto={"ABOUT US"} />
-            <NavItem link={"#"} texto={"CONTACT"} />
+            <NavItem link={"#"} title={"HOME"} />
+            <NavItem link={"#"} title={"AI VIDEOS"} />
+            <NavItem link={"#"} title={"BLOG"} />
+            <NavItem link={"#"} title={"ABOUT US"} />
+            <NavItem link={"#"} title={"CONTACT"} />
         </ul>
     )
 }

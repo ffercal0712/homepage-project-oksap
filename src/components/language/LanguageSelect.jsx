@@ -1,16 +1,17 @@
 import { LanguageOption } from "./LanguageOption.jsx";
 
 /**
- * Elemento tipo Dropdown List para seleccionar varios idiomas.
+ * Elemento tipo Dropdown List para seleccionar uno de varios idiomas.
  *
+ * @param title Título del DDL.
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function LanguageSelect() {
+export function LanguageSelect({ title }) {
     return (
         <div className="language-ddl">
             <button className="lang-ddl-btn">
-                LANGUAGE⯆
+                {title}⯆
             </button>
 
             <div className="lang-ddl-content">

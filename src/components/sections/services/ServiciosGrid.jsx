@@ -1,0 +1,37 @@
+import { ServiciosElement } from "./ServiciosElement.jsx";
+
+/**
+ * Colección de servicios, mostrado en grid con tres elementos por fila.
+ *
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
+export function ServiciosGrid() {
+    return (
+        <div id="grid-servicios">
+            <ServiciosElement
+                center={0}
+                icon={"/src/img/icons/ico_mission.png"}
+                alt={"Mission icon"}
+                title={"Mission"}
+                text={"To be the preferred destination for professionals seeking continuous growing within the SAP HR technologies to provide additional value to our clients."}
+            />
+
+            <ServiciosElement
+                center={1}
+                icon={"/src/img/icons/ico_vision.png"}
+                alt={"Vision icon"}
+                title={"Vision"}
+                text={"To build exceptional teams and enhance their performance in SAP consulting, constantly raising their level of expertise."}
+            />
+
+            <ServiciosElement
+                center={0}
+                icon={"/src/img/icons/ico_values.png"}
+                alt={"Values icon"}
+                title={"Values"}
+                text={"Specializing in SAP HR solutions with senior expertise in Spanish legal requirements."}
+            />
+        </div>
+    )
+}

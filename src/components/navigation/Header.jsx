@@ -11,7 +11,9 @@ import { NavMenu } from "./NavMenu.jsx";
  */
 export function Header() {
     const [scrolled, setScrolled] = useState(false);
-    /** Píxeles que se deben scrollear hacia abajo antes de mostrar el fondo del menú. */
+    /** Píxeles que se deben scrollear hacia abajo
+     * antes de mostrar el fondo del menú de la cabecera.
+     */
     const PX_BEFORE_VISIBLE = 20;
 
     useEffect(() => {
@@ -31,7 +33,7 @@ export function Header() {
         <header className={`header${scrolled ? " header-scrolled" : ""}`}>
             <Logo src={"/src/img/logos/logo.png"} alt={"Logo de OKSAP"}/>
 
-            <LanguageSelect />
+            <LanguageSelect title={"LANGUAGE"} />
 
             <NavMenu />
         </header>

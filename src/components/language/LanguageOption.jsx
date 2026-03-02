@@ -1,9 +1,9 @@
 /**
  * Elemento que representa una opción en el DDL de idiomas.
  *
- * @param language nombre del idioma, en su idioma original
- * @param src URL de la imagen de la bandera
- * @param alt texto alt
+ * @param language Nombre del idioma, en su idioma original.
+ * @param src URL/ubicación de la imagen de la bandera.
+ * @param alt Texto alt.
  * @returns {React.JSX.Element}
  * @constructor
  */
