@@ -20,10 +20,12 @@ export function AboutUsCard({ iconText, iconImage, backgroundImg, title, text, l
                         <img className="card-icon-img" src={iconImage}/>
                     </div>
                 </div>
-                <h2>
-                    <a href={link} target="_blank">{title}</a>
-                </h2>
-                <p>{text}</p>
+                <div className="card-text">
+                    <h2>
+                        <a href={link} target="_blank">{title}</a>
+                    </h2>
+                    <p>{text}</p>
+                </div>
             </div>
         )
     } else {
@@ -33,10 +35,12 @@ export function AboutUsCard({ iconText, iconImage, backgroundImg, title, text, l
                     <img className="card-img" src={backgroundImg}/>
                     <h4 className="card-icon">{iconText}</h4>
                 </div>
-                <h2>
-                    <a href={link} target="_blank">{title}</a>
-                </h2>
-                <p>{text}</p>
+                <div className="card-text">
+                    <h2>
+                        <a href={link} target="_blank">{title}</a>
+                    </h2>
+                    <p>{text}</p>
+                </div>
             </div>
         )
     }

@@ -11,8 +11,10 @@ import { SectionTitle } from "../SectionTitle.jsx";
 export function AboutUsSection({ sectionTitle }) {
     return (
         <section id="about-us">
-            <SectionTitle title={sectionTitle} />
-            <AboutUsCards />
+            <div className="about-us-container">
+                <SectionTitle title={sectionTitle} />
+                <AboutUsCards />
+            </div>
         </section>
     )
 }

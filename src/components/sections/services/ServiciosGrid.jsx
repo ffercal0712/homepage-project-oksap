@@ -10,7 +10,7 @@ export function ServiciosGrid() {
     return (
         <div id="grid-servicios">
             <ServiciosElement
-                center={0}
+                shade={0}
                 icon={"/src/img/icons/ico_mission.png"}
                 alt={"Mission icon"}
                 title={"Mission"}
@@ -18,7 +18,7 @@ export function ServiciosGrid() {
             />
 
             <ServiciosElement
-                center={1}
+                shade={1}
                 icon={"/src/img/icons/ico_vision.png"}
                 alt={"Vision icon"}
                 title={"Vision"}
@@ -26,7 +26,7 @@ export function ServiciosGrid() {
             />
 
             <ServiciosElement
-                center={0}
+                shade={0}
                 icon={"/src/img/icons/ico_values.png"}
                 alt={"Values icon"}
                 title={"Values"}
