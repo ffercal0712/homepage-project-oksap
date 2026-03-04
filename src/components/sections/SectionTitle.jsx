@@ -5,10 +5,12 @@
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function SectionTitle({ title }) {
+function SectionTitle({ title }) {
     return (
         <>
             <h3 className="section-title">{title}</h3>
         </>
     )
 }
+
+export default SectionTitle;

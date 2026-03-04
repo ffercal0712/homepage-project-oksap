@@ -269,10 +269,9 @@
   }
 
   .about-us-container {
-    padding: 50px 1%;      /* 5% de padding a los lados, proporcional al ancho de pantalla */
-    max-width: 1200px;     /* límite máximo de ancho para no estirarse demasiado */
-    margin: 0 auto;        /* centra el contenedor horizontalmente */
-    background-color: #f8f8f8;
+    padding: 50px 1%;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .section-title {
@@ -429,36 +428,36 @@
     padding: 0 20px 20px 20px;
   }
 
-  .carousel {
-    position: relative;
-    width: 400px;  /* ancho deseado */
-    height: 120px; /* altura de un item */
-    overflow: hidden;
+  /* Para: sección de clientes */
+
+  .clients-section {
+    padding: 50px 1%;
   }
 
-  .carousel-item {
-    position: absolute;
+  .clients-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 35px 20px 20px 20px;
+  }
+
+  .client-item {
     width: 100%;
-    top: 0;
-    left: 0;
-
-    animation-name: carousel-vertical;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
+    margin: 0 auto;
   }
 
-  .carousel-item img {
-    width: 50px;   /* o ajusta según tamaño */
-    height: auto;
-    display: block;
+  .client-item img {
+    width: 100%;
+    object-fit: cover;
+    filter: opacity(0.6);
+    transition: 0.3s;
   }
 
-  @keyframes carousel-vertical {
-    0%   { transform: translateY(100%); opacity: 0; }
-    10%  { transform: translateY(0%); opacity: 1; }
-    25%  { transform: translateY(0%); opacity: 1; }
-    35%  { transform: translateY(-100%); opacity: 0; }
-    100% { transform: translateY(-100%); opacity: 0; }
+  .client-item:hover img {
+    filter: opacity(1);
+  }
+
+  .section-alt {
+    background-color: #f8f8f8;
   }
 
   /* Generado por WebStorm */

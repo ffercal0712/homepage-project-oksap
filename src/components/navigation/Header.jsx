@@ -9,7 +9,7 @@ import { NavMenu } from "./NavMenu.jsx";
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function Header() {
+export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     /** Píxeles que se deben scrollear hacia abajo
      * antes de mostrar el fondo del menú de la cabecera.

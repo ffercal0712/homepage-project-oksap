@@ -6,7 +6,7 @@
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function PortadaSection({ title, subtitle }) {
+export default function PortadaSection({ title, subtitle }) {
     return (
         <section id="seccion-portada">
             <a href="https://www.instagram.com/oksap.spain/" target="_blank">

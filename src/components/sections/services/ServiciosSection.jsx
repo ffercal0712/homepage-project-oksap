@@ -6,7 +6,7 @@ import { ServiciosGrid } from "./ServiciosGrid.jsx";
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function ServiciosSection() {
+export default function ServiciosSection() {
     return (
         <section id="seccion-servicios">
             <ServiciosGrid />

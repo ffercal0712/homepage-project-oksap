@@ -1,5 +1,5 @@
 import { AboutUsCards } from "./AboutUsCards.jsx";
-import { SectionTitle } from "../SectionTitle.jsx";
+import SectionTitle from "../SectionTitle.jsx";
 
 /**
  * Sección About Us (Sobre Nosotros).
@@ -8,13 +8,15 @@ import { SectionTitle } from "../SectionTitle.jsx";
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function AboutUsSection({ sectionTitle }) {
+function AboutUsSection({ sectionTitle }) {
     return (
         <section id="about-us">
-            <div className="about-us-container">
+            <div className="about-us-container section-alt">
                 <SectionTitle title={sectionTitle} />
                 <AboutUsCards />
             </div>
         </section>
     )
 }
+
+export default AboutUsSection;
