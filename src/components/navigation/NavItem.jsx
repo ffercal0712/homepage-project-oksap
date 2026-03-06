@@ -7,10 +7,12 @@
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function NavItem({ link, title }) {
+function NavItem({ link, title }) {
     return (
         <>
             <li className="header-item"><a href={link}>{title}</a></li>
         </>
     )
 }
+
+export default NavItem;

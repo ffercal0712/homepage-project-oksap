@@ -8,7 +8,7 @@
 function SectionTitle({ title }) {
     return (
         <>
-            <h3 className="section-title">{title}</h3>
+            <h3 className="section-title gradient-text">{title}</h3>
         </>
     )
 }

@@ -10,7 +10,7 @@
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function AboutUsCard({ iconText, iconImage, backgroundImg, title, text, link }) {
+function AboutUsCard({ iconText, iconImage, backgroundImg, title, text, link }) {
     if (iconText === '' || iconText === undefined) {
         return (
             <div className="about-us-card">
@@ -33,7 +33,9 @@ export function AboutUsCard({ iconText, iconImage, backgroundImg, title, text, l
             <div className="about-us-card">
                 <div className="card-imgs">
                     <img className="card-img" src={backgroundImg}/>
-                    <h4 className="card-icon">{iconText}</h4>
+                    <div className="card-icon-container">
+                        <h4 className="card-icon">{iconText}</h4>
+                    </div>
                 </div>
                 <div className="card-text">
                     <h2>
@@ -45,3 +47,5 @@ export function AboutUsCard({ iconText, iconImage, backgroundImg, title, text, l
         )
     }
 }
+
+export default AboutUsCard;

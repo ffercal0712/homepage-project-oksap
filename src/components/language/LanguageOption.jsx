@@ -7,10 +7,12 @@
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function LanguageOption({ language, src, alt }) {
+function LanguageOption({ language, src, alt }) {
     return (
         <a href="#">
             <img src={src} alt={alt}
                  width="20" height="20"/> {language}</a>
     )
 }
+
+export default LanguageOption;

@@ -6,8 +6,10 @@
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function Logo({ src, alt }) {
+function Logo({ src, alt }) {
     return (
         <img className="logo" src={src} alt={alt}/>
     )
 }
+
+export default Logo;
