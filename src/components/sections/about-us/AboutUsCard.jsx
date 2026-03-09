@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 /**
  * Tarjetas usadas para describir servicios que se ofrecen.
  *
@@ -6,14 +8,35 @@
  * @param backgroundImg Imagen que utilizar de fondo para la tarjeta.
  * @param title Título de la tarjeta.
  * @param text Texto de la tarjeta.
- * @param link URL/enlace enlazada por el título de la tarjeta. Se abre en una nueva pestaña.
  * @returns {React.JSX.Element}
  * @constructor
  */
-function AboutUsCard({ iconText, iconImage, backgroundImg, title, text, link }) {
+function AboutUsCard({ iconText, iconImage, backgroundImg, title, text }) {
+    const cardRef = useRef(null);
+    const [visible, setVisible] = useState(false);
+
+    // useEffect para hacer una animación de aparición una vez se ve
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setVisible(true);
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        if (cardRef.current) {
+            observer.observe(cardRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     if (iconText === '' || iconText === undefined) {
         return (
-            <div className="about-us-card">
+            <div ref={cardRef}
+                 className={`about-us-card${visible ? " card-visible" : ""}`}>
                 <div className="card-imgs">
                     <img className="card-img" src={backgroundImg}/>
                     <div className="card-icon-container">
@@ -21,16 +44,15 @@ function AboutUsCard({ iconText, iconImage, backgroundImg, title, text, link }) 
                     </div>
                 </div>
                 <div className="card-text">
-                    <h2>
-                        <a href={link} target="_blank">{title}</a>
-                    </h2>
+                    <h2>{title}</h2>
                     <p>{text}</p>
                 </div>
             </div>
         )
     } else {
         return (
-            <div className="about-us-card">
+            <div ref={cardRef}
+                 className={`about-us-card${visible ? " card-visible" : ""}`}>
                 <div className="card-imgs">
                     <img className="card-img" src={backgroundImg}/>
                     <div className="card-icon-container">
@@ -38,9 +60,7 @@ function AboutUsCard({ iconText, iconImage, backgroundImg, title, text, link }) 
                     </div>
                 </div>
                 <div className="card-text">
-                    <h2>
-                        <a href={link} target="_blank">{title}</a>
-                    </h2>
+                    <h2>{title}</h2>
                     <p>{text}</p>
                 </div>
             </div>

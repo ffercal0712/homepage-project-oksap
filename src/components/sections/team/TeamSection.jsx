@@ -2,6 +2,13 @@ import TeamCard from "./TeamCard.jsx";
 import TeamCards from "./TeamCards.jsx";
 import SectionTitle from "../SectionTitle.jsx";
 
+/**
+ * Sección de los miembros del equipo.
+ *
+ * @param sectionTitle
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
 function TeamSection({ sectionTitle }) {
     return (
         <section id="team">

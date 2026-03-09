@@ -1,5 +1,5 @@
-import { Servicios } from "./Servicios.jsx";
-import {ServiciosElement} from "./ServiciosElement.jsx";
+import Servicios from "./Servicios.jsx";
+import ServiciosElement from "./ServiciosElement.jsx";
 
 /**
  * Sección de Servicios.
@@ -7,7 +7,7 @@ import {ServiciosElement} from "./ServiciosElement.jsx";
  * @returns {React.JSX.Element}
  * @constructor
  */
-export default function ServiciosSection() {
+function ServiciosSection() {
     return (
         <section id="seccion-servicios">
             <Servicios>
@@ -38,3 +38,5 @@ export default function ServiciosSection() {
         </section>
     )
 }
+
+export default ServiciosSection;

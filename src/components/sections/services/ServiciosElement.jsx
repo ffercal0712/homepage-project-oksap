@@ -11,21 +11,22 @@ import { useEffect, useRef, useState } from "react";
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function ServiciosElement({ shade, icon, alt, title, text }) {
+function ServiciosElement({ shade, icon, alt, title, text }) {
 
     const ref = useRef(null);
     const [visible, setVisible] = useState(false);
 
+    // useEffect para hacer una animación de aparición una vez se ve
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setVisible(true);
-                    observer.unobserve(entry.target); // 👈 solo una vez
+                    observer.unobserve(entry.target);
                 }
             },
             {
-                threshold: 0.3 // se activa cuando el 30% es visible
+                threshold: 0.3 // se muestra cuando el 30% es visible
             }
         );
 
@@ -44,7 +45,10 @@ export function ServiciosElement({ shade, icon, alt, title, text }) {
             className={`${shade === 1 ? "elem-servicios-central" : "elem-servicios"} ${visible ? "elem-visible" : ""}`}>
             <img src={icon} alt={alt}/>
             <h4>{title}</h4>
+            <hr/>
             <p>{text}</p>
         </div>
     )
 }
+
+export default ServiciosElement;

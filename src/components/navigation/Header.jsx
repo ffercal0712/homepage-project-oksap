@@ -13,6 +13,8 @@ import NavItem from "./NavItem.jsx";
  */
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+
     /** Píxeles que se deben scrollear hacia abajo
      * antes de mostrar el fondo del menú de la cabecera.
      */
@@ -20,37 +22,51 @@ export default function Header() {
 
     useEffect(() => {
         function handleScroll() {
-            if (window.scrollY > PX_BEFORE_VISIBLE) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
+            setScrolled(window.scrollY > PX_BEFORE_VISIBLE);
         }
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
         <header className={`header${scrolled ? " header-scrolled" : ""}`}>
             <Logo src={"/src/img/logos/logo.png"} alt={"Logo de OKSAP"}/>
 
-            <LanguageSelect title={"LANGUAGE"}>
-                <LanguageOption language={"ENGLISH"} src={"/src/img/lang/eng.png"} alt={"English"} />
-                <LanguageOption language={"ESPAÑOL"} src={"/src/img/lang/espana.png"} alt={"Español"} />
-                <LanguageOption language={"DEUTSCH"} src={"/src/img/lang/alemania.png"} alt={"Deutsch"} />
-                <LanguageOption language={"FRANÇAIS"} src={"/src/img/lang/francia.png"} alt={"Français"} />
-                <LanguageOption language={"NORSK"} src={"/src/img/lang/noruega.png"} alt={"Norsk"} />
-                <LanguageOption language={"SVENSKA"} src={"/src/img/lang/suecia.png"} alt={"Svenska"} />
-            </LanguageSelect>
+            <button
+                className="menu-toggle"
+                onClick={() => setMenuOpen(!menuOpen)}
+            >
+                ☰
+            </button>
 
-            <NavMenu>
-                <NavItem link={"#"} title={"HOME"} />
-                <NavItem link={"#"} title={"AI VIDEOS"} />
-                <NavItem link={"#"} title={"BLOG"} />
-                <NavItem link={"#"} title={"ABOUT US"} />
-                <NavItem link={"#"} title={"CONTACT"} />
-            </NavMenu>
+            <div className={`nav-wrapper ${menuOpen ? "nav-open nav-overlay" : ""}`}>
+
+                <button
+                    className="menu-close"
+                    onClick={() => setMenuOpen(false)}
+                >
+                    ✕
+                </button>
+
+                <LanguageSelect title={"LANGUAGE"}>
+                    <LanguageOption language={"ENGLISH"} src={"/src/img/lang/eng.png"} alt={"English"} />
+                    <LanguageOption language={"ESPAÑOL"} src={"/src/img/lang/espana.png"} alt={"Español"} />
+                    <LanguageOption language={"DEUTSCH"} src={"/src/img/lang/alemania.png"} alt={"Deutsch"} />
+                    <LanguageOption language={"FRANÇAIS"} src={"/src/img/lang/francia.png"} alt={"Français"} />
+                    <LanguageOption language={"NORSK"} src={"/src/img/lang/noruega.png"} alt={"Norsk"} />
+                    <LanguageOption language={"SVENSKA"} src={"/src/img/lang/suecia.png"} alt={"Svenska"} />
+                </LanguageSelect>
+
+                <NavMenu>
+                    <NavItem link={"#"} title={"HOME"} />
+                    <NavItem link={"#"} title={"AI VIDEOS"} />
+                    <NavItem link={"#"} title={"BLOG"} />
+                    <NavItem link={"#"} title={"ABOUT US"} />
+                    <NavItem link={"#"} title={"CONTACT"} />
+                </NavMenu>
+
+            </div>
         </header>
     )
 }

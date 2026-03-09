@@ -25,6 +25,7 @@ function ClientSlider({
                           autoplay = false,
                           autoplaySpeed = 2500
 }) {
+    // Configuración del slider
     const settings = {
         dots: false,
         arrows: false,

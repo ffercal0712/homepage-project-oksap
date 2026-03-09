@@ -13,7 +13,6 @@
     -moz-osx-font-smoothing: grayscale;
 
     /* Tipografía */
-    --font-primary: "Montserrat", sans-serif;
     --font-about-us-card-title: "DejaVu Sans Condensed", sans-serif;
     --font-about-us-card-subtitle: "Calibri", sans-serif;
 
@@ -22,6 +21,9 @@
     --section-title-line-main-color: #616261;
     --section-title-line-secondary-color: #ddd;
     --gradient-text: linear-gradient(90deg, #b8ccea, #ebebeb, #b6b6b6);
+    --icon-link-color: #5c5c5c;
+    --icon-link-hover-color: #8f8f8f;
+    --footer-icon-link-hover-color: #ffffff;
 
     /* Fondos */
     --bg-portada-gradient: linear-gradient(rgb(28, 28, 28), rgb(32, 32, 32));
@@ -29,6 +31,17 @@
     --bg-sky: linear-gradient(rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.00)), url("/src/img/decoration/sky.jpg");
     --bg-section: linear-gradient(rgb(28, 28, 28), rgb(32, 32, 32));
     --bg-section-alt: linear-gradient(rgb(16, 16, 16), rgb(23, 23, 23));
+    --bg-elem-servicios: rgba(240, 248, 255, 0.02);
+    --bg-elem-servicios-central-gradient: linear-gradient(rgba(0, 0, 0, 0), #353535, rgba(0, 0, 0, 0));;
+
+    /* Bordes */
+    --border-elem-servicios-hr-properties: 1px solid;
+
+    /* Colores de bordes */
+    --border-elem-servicios: linear-gradient(90deg, rgb(225, 0, 0), rgb(0, 60, 177)) 1;
+    --border-elem-servicios-central: linear-gradient(90deg, rgb(0, 60, 177), rgb(225, 0, 0)) 1;
+    --border-elem-servicios-hr: linear-gradient(90deg, rgb(213, 213, 213), rgb(94, 94, 94)) 1;
+    --border-elem-servicios-central-hr: linear-gradient(90deg, rgb(94, 94, 94), rgb(213, 213, 213)) 1;
 
     /* Logos de clientes */
     --logo-visuals: grayscale(95%) opacity(0.85) brightness(140%);
@@ -111,6 +124,91 @@
 
   .logo:hover {
     filter: brightness(110%);
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+
+    position: relative;
+    top: -5px;
+  }
+
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .menu-close {
+    display: none;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    margin: 5px 15px 0 0;
+  }
+
+  @media (max-width: 900px) {
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-wrapper {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      height: 100vh;
+      width: 260px;
+
+      background: var(--bg-header);
+
+      display: flex;
+      flex-direction: column;
+
+      padding-top: 50px;
+      padding-right: 50px;
+
+      overflow-y: auto;
+
+      transition: right 0.3s ease;
+    }
+
+    .nav-open {
+      right: 0;
+    }
+
+    .menu-close {
+      display: block;
+    }
+
+    .header-list {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .header-item {
+      margin: 10px 0;
+    }
+
+    .language-ddl {
+      margin-bottom: 30px;
+    }
   }
 
   .header-item a {
@@ -254,21 +352,44 @@
 
   #grid-servicios {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    background-color: #27273a;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    background-color: #272727;
     overflow: hidden;
   }
 
-  .elem-servicios, .elem-servicios-central {
-    padding: 30px 20px;
+  .elem-servicios {
+    border: 5px solid;
+    border-image: var(--border-elem-servicios);
+  }
+
+  .elem-servicios-central {
+    border: 5px solid;
+    border-image: var(--border-elem-servicios-central);
   }
 
   .elem-servicios,
   .elem-servicios-central {
+    padding: 30px 20px;
+    margin: 10px;
+
+    background-color: var(--bg-elem-servicios);
+
     opacity: 0;
     transform: scale(1.2);
     transition: opacity 0.6s ease, transform 0.6s ease;
     transform-origin: center center;
+  }
+
+  .elem-servicios hr, .elem-servicios-central hr {
+    border: var(--border-elem-servicios-hr-properties);
+  }
+
+  .elem-servicios hr {
+    border-image: var(--border-elem-servicios-hr);
+  }
+
+  .elem-servicios-central hr {
+    border-image: var(--border-elem-servicios-central-hr);
   }
 
   /* Estado cuando ya es visible */
@@ -278,7 +399,7 @@
   }
 
   .elem-servicios-central {
-    background-image: linear-gradient(rgba(0, 0, 0, 0), #323243, rgba(0, 0, 0, 0));
+    background-image: var(--bg-elem-servicios-central-gradient);
   }
 
   .elem-servicios img, .elem-servicios-central img {
@@ -382,7 +503,10 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
 
-    transition: 0.3s;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    opacity: 0;
+    transform: translateY(40px);
 
     height: 100%;
   }
@@ -477,23 +601,22 @@
   }
 
   .about-us-card h2 {
+    width: fit-content;
+    color: #ececec;
+
     margin-top: 8px;
+    padding: 0 20px 0 20px;
 
     font-size: 20px;
-    padding: 0 20px 0 20px;
-  }
-
-  .about-us-card h2 a {
-    color: #ececec;
-    transition: 0.3s;
-
     font-weight: 700;
     font-family: var(--font-about-us-card-title), serif;
+
+    transition: 0.3s;
   }
 
-  .about-us-card h2 a:hover {
+  /*.about-us-card h2:hover {
     color: #858585;
-  }
+  }*/
 
   .about-us-card p {
     font-size: 14px;
@@ -584,7 +707,15 @@
     display: flex;
     flex-direction: column;
 
-    transition: 0.3s;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .card-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .team-card:hover {
@@ -647,13 +778,13 @@
 
   .icon {
     font-size: 20px;
-    color: #5c5c5c;
+    color: var(--icon-link-color);
 
     transition: 0.3s;
   }
 
   .icon:hover {
-    color: #838383;
+    color: var(--icon-link-hover-color);
   }
 
   /* Para: footer */
@@ -677,7 +808,7 @@
     padding: 50px;
   }
 
-  .company-container, .info, .contact {
+  .company-container, .info {
     display: flex;
     flex-direction: row;
   }
@@ -734,10 +865,10 @@
   }
 
   .footer-container .icon:hover {
-    color: #ffffff;
+    color: var(--footer-icon-link-hover-color);
   }
 
-  .footer-container a {
+  .footer-container a, .footer-container p {
     display: inline-flex;
     margin: 0 5px 0 5px;
   }

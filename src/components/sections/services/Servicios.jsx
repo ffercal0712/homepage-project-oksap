@@ -4,10 +4,12 @@
  * @returns {React.JSX.Element}
  * @constructor
  */
-export function Servicios({ children }) {
+function Servicios({ children }) {
     return (
         <div id="grid-servicios">
             {children}
         </div>
     )
 }
+
+export default Servicios;
