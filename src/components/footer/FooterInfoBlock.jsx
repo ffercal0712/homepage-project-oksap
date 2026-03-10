@@ -1,37 +1,17 @@
-import { MdKeyboardArrowRight } from "react-icons/md";
-
-function FooterInfoBlock({ text, link, mail }) {
-    if (link || link !== undefined) {
-        return (
-            <div className="footer-block">
-                            <span className="info">
-                                <MdKeyboardArrowRight className="block-arrow" />
-                                <a href={link} target="_blank">{text}</a>
-                            </span>
-                <hr />
-            </div>
-        )
-    } else if (mail || mail !== undefined) {
-        return (
-            <div className="footer-block">
-                            <span className="info">
-                                <MdKeyboardArrowRight className="block-arrow" />
-                                <a href={`mailto:${mail}`}>{text}</a>
-                            </span>
-                <hr />
-            </div>
-        )
-    } else {
-        return (
-            <div className="footer-block">
-                            <span className="info">
-                                <MdKeyboardArrowRight className="block-arrow" />
-                                <p>{text}</p>
-                            </span>
-                <hr />
-            </div>
-        )
-    }
+/**
+ * Colección de elementos de información del footer.
+ *
+ * @param children elementos tipo FooterInfo. No se pasan como parámetros.
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
+function FooterInfoBlock({ children }) {
+    return (
+        <div className="footer-container">
+            <hr/>
+            {children}
+        </div>
+    )
 }
 
 export default FooterInfoBlock;

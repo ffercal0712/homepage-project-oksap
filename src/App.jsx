@@ -6,7 +6,14 @@ import ClientsSection from "./components/sections/clients/ClientsSection.jsx";
 import TeamSection from "./components/sections/team/TeamSection.jsx";
 import Footer from "./components/footer/Footer.jsx";
 
-export function App() {
+/**
+ * Componente que representa la página web, con todos los elementos
+ * que la componen implementados.
+ *
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
+function App() {
     return (
         <>
             <Header />
@@ -37,3 +44,5 @@ export function App() {
         </>
     )
 }
+
+export default App;

@@ -23,6 +23,7 @@
     --gradient-text: linear-gradient(90deg, #b8ccea, #ebebeb, #b6b6b6);
     --icon-link-color: #5c5c5c;
     --icon-link-hover-color: #8f8f8f;
+    --footer-icon-link-color: #5c5c5c;
     --footer-icon-link-hover-color: #ffffff;
 
     /* Fondos */
@@ -31,17 +32,18 @@
     --bg-sky: linear-gradient(rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.00)), url("/src/img/decoration/sky.jpg");
     --bg-section: linear-gradient(rgb(28, 28, 28), rgb(32, 32, 32));
     --bg-section-alt: linear-gradient(rgb(16, 16, 16), rgb(23, 23, 23));
+    --bg-servicios: #272727;
     --bg-elem-servicios: rgba(240, 248, 255, 0.02);
-    --bg-elem-servicios-central-gradient: linear-gradient(rgba(0, 0, 0, 0), #353535, rgba(0, 0, 0, 0));;
+    --bg-elem-servicios-shade: linear-gradient(rgba(0, 0, 0, 0), #353535, rgba(0, 0, 0, 0));
 
     /* Bordes */
     --border-elem-servicios-hr-properties: 1px solid;
 
     /* Colores de bordes */
     --border-elem-servicios: linear-gradient(90deg, rgb(225, 0, 0), rgb(0, 60, 177)) 1;
-    --border-elem-servicios-central: linear-gradient(90deg, rgb(0, 60, 177), rgb(225, 0, 0)) 1;
+    --border-elem-servicios-shade: linear-gradient(90deg, rgb(0, 60, 177), rgb(225, 0, 0)) 1;
     --border-elem-servicios-hr: linear-gradient(90deg, rgb(213, 213, 213), rgb(94, 94, 94)) 1;
-    --border-elem-servicios-central-hr: linear-gradient(90deg, rgb(94, 94, 94), rgb(213, 213, 213)) 1;
+    --border-elem-servicios-shade-hr: linear-gradient(90deg, rgb(94, 94, 94), rgb(213, 213, 213)) 1;
 
     /* Logos de clientes */
     --logo-visuals: grayscale(95%) opacity(0.85) brightness(140%);
@@ -353,7 +355,7 @@
   #grid-servicios {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    background-color: #272727;
+    background-color: var(--bg-servicios);
     overflow: hidden;
   }
 
@@ -362,13 +364,13 @@
     border-image: var(--border-elem-servicios);
   }
 
-  .elem-servicios-central {
+  .elem-servicios-shade {
     border: 5px solid;
-    border-image: var(--border-elem-servicios-central);
+    border-image: var(--border-elem-servicios-shade);
   }
 
   .elem-servicios,
-  .elem-servicios-central {
+  .elem-servicios-shade {
     padding: 30px 20px;
     margin: 10px;
 
@@ -380,7 +382,7 @@
     transform-origin: center center;
   }
 
-  .elem-servicios hr, .elem-servicios-central hr {
+  .elem-servicios hr, .elem-servicios-shade hr {
     border: var(--border-elem-servicios-hr-properties);
   }
 
@@ -388,27 +390,26 @@
     border-image: var(--border-elem-servicios-hr);
   }
 
-  .elem-servicios-central hr {
-    border-image: var(--border-elem-servicios-central-hr);
+  .elem-servicios-shade hr {
+    border-image: var(--border-elem-servicios-shade-hr);
   }
 
-  /* Estado cuando ya es visible */
   .elem-visible {
     opacity: 1;
     transform: scale(1);
   }
 
-  .elem-servicios-central {
-    background-image: var(--bg-elem-servicios-central-gradient);
+  .elem-servicios-shade {
+    background-image: var(--bg-elem-servicios-shade);
   }
 
-  .elem-servicios img, .elem-servicios-central img {
+  .elem-servicios img, .elem-servicios-shade img {
     max-height: 44px;
     display: inline-block;
     line-height: 1;
   }
 
-  .elem-servicios h4, .elem-servicios-central h4 {
+  .elem-servicios h4, .elem-servicios-shade h4 {
     font-weight: 400;
     margin: 15px 0;
     font-size: 18px;
@@ -416,7 +417,7 @@
     filter: brightness(50%);
   }
 
-  .elem-servicios p, .elem-servicios-central p {
+  .elem-servicios p, .elem-servicios-shade p {
     font-size: 14px;
     line-height: 24px;
     color: #fff;
@@ -613,10 +614,6 @@
 
     transition: 0.3s;
   }
-
-  /*.about-us-card h2:hover {
-    color: #858585;
-  }*/
 
   .about-us-card p {
     font-size: 14px;
@@ -862,6 +859,7 @@
 
   .footer-container .icon {
     font-size: 35px;
+    color: var(--footer-icon-link-color);
   }
 
   .footer-container .icon:hover {

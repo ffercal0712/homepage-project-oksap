@@ -42,7 +42,7 @@ function ServiciosElement({ shade, icon, alt, title, text }) {
     return (
         <div
             ref={ref}
-            className={`${shade === 1 ? "elem-servicios-central" : "elem-servicios"} ${visible ? "elem-visible" : ""}`}>
+            className={`${shade === 1 ? "elem-servicios-shade" : "elem-servicios"} ${visible ? "elem-visible" : ""}`}>
             <img src={icon} alt={alt}/>
             <h4>{title}</h4>
             <hr/>

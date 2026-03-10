@@ -2,8 +2,22 @@ import { FaBlog, FaInstagram, FaSquareXTwitter } from "react-icons/fa6";
 import { FaEnvelope, FaFacebookSquare, FaLinkedin } from "react-icons/fa";
 import { AiFillFileUnknown } from "react-icons/ai";
 
-function FooterLinksBlock({
-                              link,
+/**
+ * Elemento que representa un enlace social o de contacto de la empresa a través de un icono.
+ *
+ * @param link URL/dirección/correo al que enlazar.
+ * @param mail true para mostrar icono de correo electrónico.
+ *             Poner un correo en el link al usar este icono.
+ * @param blog true para mostrar icono de blog.
+ * @param twitter true para mostrar icono de Twitter/X.
+ * @param linkedin true para mostrar icono de LinkedIn.
+ * @param facebook true para mostrar icono de Facebook.
+ * @param instagram true para mostrar icono de Instagram.
+ * @returns {React.JSX.Element}
+ * @constructor
+ */
+function FooterLink({
+                              link = "#",
                               mail = false,
                               blog = false,
                               twitter = false,
@@ -13,7 +27,7 @@ function FooterLinksBlock({
 }) {
     if (mail) {
         return (
-            <a href={link} target="_blank">
+            <a href={`mailto:${link}`} target="_blank">
                 <FaEnvelope className="icon" />
             </a>
         )
@@ -56,4 +70,4 @@ function FooterLinksBlock({
     }
 }
 
-export default FooterLinksBlock;
+export default FooterLink;
