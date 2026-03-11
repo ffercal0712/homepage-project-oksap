@@ -13,14 +13,19 @@
     -moz-osx-font-smoothing: grayscale;
 
     /* Tipografía */
+    --font-primary: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --font-portada-title: "Montserrat", sans-serif;
+    --font-portada-subtitle: "Montserrat", sans-serif;
     --font-about-us-card-title: "DejaVu Sans Condensed", sans-serif;
     --font-about-us-card-subtitle: "Calibri", sans-serif;
+    --font-card-icon: "Montserrat", sans-serif;
+    --font-footer: "Montserrat", sans-serif;
 
     /* Colores de texto */
     --section-title-color: rgb(230, 230, 230);
     --section-title-line-main-color: #616261;
     --section-title-line-secondary-color: #ddd;
-    --gradient-text: linear-gradient(90deg, #b8ccea, #ebebeb, #b6b6b6);
+    --gradient-text: linear-gradient(90deg, #98b7ea, #ebebeb, #9f9d9d);
     --icon-link-color: #5c5c5c;
     --icon-link-hover-color: #8f8f8f;
     --footer-icon-link-color: #5c5c5c;
@@ -59,6 +64,8 @@
     width: 100%;
     margin: 0;
     padding: 0;
+
+    font-family: var(--font-primary), serif;
   }
 
   * {
@@ -309,6 +316,8 @@
     font-weight: 800;
     text-align: center;
 
+    font-family: var(--font-portada-title), serif;
+
     margin: 0 0 20px 0;
     padding: 0;
   }
@@ -318,9 +327,12 @@
     text-align: center;
     margin-top: 0;
 
+    font-style: italic;
+
+    font-family: var(--font-portada-subtitle), serif;
+
     font-size: 32px;
     line-height: 1;
-    font-family: "Montserrat", sans-serif;
     font-weight: 800;
     letter-spacing: 3px;
     color: #b8b8b8;
@@ -579,7 +591,7 @@
     transform: translate(-50%, -50%);
 
     color: #ffffff;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--font-card-icon), serif;
     font-weight: 100;
     font-size: 1.75rem;
     text-align: center;
@@ -796,7 +808,7 @@
 
   .footer {
     background-color: #121212;
-    font-family: "Montserrat", sans-serif;
+    font-family: var(--font-footer), serif;
     font-weight: 700;
     color: #ffffff;
     display: grid;
