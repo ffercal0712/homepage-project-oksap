@@ -759,6 +759,11 @@
     padding-bottom: 20px;
   }
 
+  .principal-line {
+    display: block;
+    margin-top: 5px;
+  }
+
   .team-links {
     margin-top: auto;
     display: flex;

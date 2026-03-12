@@ -4,6 +4,7 @@ import Logo from "../Logo.jsx";
 import NavMenu from "./NavMenu.jsx";
 import LanguageOption from "../language/LanguageOption.jsx";
 import NavItem from "./NavItem.jsx";
+import { useTranslation } from "react-i18next";
 
 /**
  * Cabecera de la página principal.
@@ -11,7 +12,7 @@ import NavItem from "./NavItem.jsx";
  * @returns {React.JSX.Element}
  * @constructor
  */
-export default function Header() {
+function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -28,6 +29,8 @@ export default function Header() {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const { t } = useTranslation();
 
     return (
         <header className={`header${scrolled ? " header-scrolled" : ""}`}>
@@ -49,24 +52,26 @@ export default function Header() {
                     ✕
                 </button>
 
-                <LanguageSelect title={"LANGUAGE"}>
-                    <LanguageOption language={"ENGLISH"} src={"/src/img/lang/eng.png"} alt={"English"} />
-                    <LanguageOption language={"ESPAÑOL"} src={"/src/img/lang/espana.png"} alt={"Español"} />
-                    <LanguageOption language={"DEUTSCH"} src={"/src/img/lang/alemania.png"} alt={"Deutsch"} />
-                    <LanguageOption language={"FRANÇAIS"} src={"/src/img/lang/francia.png"} alt={"Français"} />
-                    <LanguageOption language={"NORSK"} src={"/src/img/lang/noruega.png"} alt={"Norsk"} />
-                    <LanguageOption language={"SVENSKA"} src={"/src/img/lang/suecia.png"} alt={"Svenska"} />
+                <LanguageSelect title={t("languageSelect")}>
+                    <LanguageOption language={"ENGLISH"} code={"en"} src={"/src/img/lang/eng.png"} alt={"English"} />
+                    <LanguageOption language={"ESPAÑOL"} code={"es"} src={"/src/img/lang/espana.png"} alt={"Español"} />
+                    <LanguageOption language={"DEUTSCH"} code={"de"} src={"/src/img/lang/alemania.png"} alt={"Deutsch"} />
+                    <LanguageOption language={"FRANÇAIS"} code={"fr"} src={"/src/img/lang/francia.png"} alt={"Français"} />
+                    <LanguageOption language={"NORSK"} code={"nk"} src={"/src/img/lang/noruega.png"} alt={"Norsk"} />
+                    <LanguageOption language={"SVENSKA"} code={"sv"} src={"/src/img/lang/suecia.png"} alt={"Svenska"} />
                 </LanguageSelect>
 
                 <NavMenu>
-                    <NavItem link={"#"} title={"HOME"} />
-                    <NavItem link={"#"} title={"AI VIDEOS"} />
-                    <NavItem link={"#"} title={"BLOG"} />
-                    <NavItem link={"#"} title={"ABOUT US"} />
-                    <NavItem link={"#"} title={"CONTACT"} />
+                    <NavItem link={"#"} title={t("home")} />
+                    <NavItem link={"#"} title={t("aiVideos")} />
+                    <NavItem link={"#"} title={t("blog")} />
+                    <NavItem link={"#"} title={t("about")} />
+                    <NavItem link={"#"} title={t("contact")} />
                 </NavMenu>
 
             </div>
         </header>
     )
 }
+
+export default Header;

@@ -5,6 +5,7 @@ import AboutUsSection from "./components/sections/about-us/AboutUsSection.jsx";
 import ClientsSection from "./components/sections/clients/ClientsSection.jsx";
 import TeamSection from "./components/sections/team/TeamSection.jsx";
 import Footer from "./components/footer/Footer.jsx";
+import { useTranslation } from "react-i18next";
 
 /**
  * Componente que representa la página web, con todos los elementos
@@ -14,31 +15,34 @@ import Footer from "./components/footer/Footer.jsx";
  * @constructor
  */
 function App() {
+
+    const { t } = useTranslation();
+
     return (
         <>
             <Header />
 
             <PortadaSection
-                title={"We're AI"}
-                subtitle={"Success Factors, SAP HCM, Spanish Payroll"}
+                title={t("portadaTitle")}
+                subtitle={t("portadaSubtitle")}
             />
 
             <main>
                 <ServiciosSection />
 
-                <AboutUsSection sectionTitle={"What We Know to Do"} />
+                <AboutUsSection sectionTitle={t("aboutUsTitle")} />
 
                 <ClientsSection
-                    titleClients={"Our Clients"}
-                    titleClientsIT={"Contracted by the best IT companies"}
+                    titleClients={t("clientsTitle")}
+                    titleClientsIT={t("clientsTitleIT")}
                 />
 
-                <TeamSection sectionTitle={"Our Team"} />
+                <TeamSection sectionTitle={t("teamTitle")} />
             </main>
 
             <Footer
-                companyName={"OKSAP Spain"}
-                copyrightText={"Copyright 2025 © OKSAP Spain"}
+                companyName={t("footerCompany")}
+                copyrightText={t("footerCopyright")}
                 copyrightLink={"http://marketingconectado.com/"}
             />
         </>

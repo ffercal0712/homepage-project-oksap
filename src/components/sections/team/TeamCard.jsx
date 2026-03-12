@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react";
  * @param description descripción corta del miembro del equipo.
  * @param linkedin URL del LinkedIn del miembro. URL de OKSAP por defecto.
  * @param mail correo electrónico del miembro. Correo de OKSAP por defecto.
+ * @param principal true si la tarjeta es del miembro principal. False por defecto.
  * @returns {React.JSX.Element}
  * @constructor
  */
@@ -17,7 +18,8 @@ function TeamCard({
                       name,
                       description,
                       linkedin = "https://www.linkedin.com/company/oksap-spain/",
-                      mail = "info@oksap.es"
+                      mail = "info@oksap.es",
+                      principal = false,
 }) {
     const cardRef = useRef(null);
     const [visible, setVisible] = useState(false);
@@ -46,7 +48,16 @@ function TeamCard({
             <img src={img} alt=""/>
             <div className="team-card-content">
                 <h4>{name}</h4>
-                <h6>{description}</h6>
+                <h6>
+                    {description}
+                    {principal && (
+                        <>
+                            <span className="principal-line">
+                                Principal
+                            </span>
+                        </>
+                    )}
+                </h6>
 
                 <div className="team-links">
                     <a href={linkedin} target="_blank">

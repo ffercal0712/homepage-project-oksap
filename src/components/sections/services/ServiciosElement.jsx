@@ -5,13 +5,12 @@ import { useEffect, useRef, useState } from "react";
  *
  * @param shade 1 si se quiere que tenga un ligero gradiente central, 0 si no.
  * @param icon Icono a mostrar.
- * @param alt Texto alt para el icono.
  * @param title Título del servicio.
  * @param text Texto del servicio.
  * @returns {React.JSX.Element}
  * @constructor
  */
-function ServiciosElement({ shade, icon, alt, title, text }) {
+function ServiciosElement({ shade, icon, title, text }) {
 
     const ref = useRef(null);
     const [visible, setVisible] = useState(false);
@@ -43,7 +42,7 @@ function ServiciosElement({ shade, icon, alt, title, text }) {
         <div
             ref={ref}
             className={`${shade === 1 ? "elem-servicios-shade" : "elem-servicios"} ${visible ? "elem-visible" : ""}`}>
-            <img src={icon} alt={alt}/>
+            <img src={icon} alt={""}/>
             <h4>{title}</h4>
             <hr/>
             <p>{text}</p>

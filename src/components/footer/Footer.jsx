@@ -4,6 +4,7 @@ import FooterInfo from "./FooterInfo.jsx";
 import FooterLinks from "./FooterLinks.jsx";
 import FooterLink from "./FooterLink.jsx";
 import FooterCopyright from "./FooterCopyright.jsx";
+import {useTranslation} from "react-i18next";
 
 /**
  * Elemento que representa el footer de la página.
@@ -15,6 +16,9 @@ import FooterCopyright from "./FooterCopyright.jsx";
  * @constructor
  */
 function Footer({ companyName, copyrightText, copyrightLink }) {
+
+    const { t } = useTranslation();
+
     return (
         <footer>
             <div className="footer">
@@ -22,14 +26,14 @@ function Footer({ companyName, copyrightText, copyrightLink }) {
 
                 <FooterInfoBlock>
                     <FooterInfo text={"www.sap.com"} link={"https://www.sap.com"} />
-                    <FooterInfo text={"Privacy statement"} link={"https://oksap.es/politicas.php"} />
-                    <FooterInfo text={"Privacy notice"} link={"https://oksap.es/politicas_notice.php"} />
+                    <FooterInfo text={t("footerPrivacyStatement")} link={"https://oksap.es/politicas.php"} />
+                    <FooterInfo text={t("footerPrivacyNotice")} link={"https://oksap.es/politicas_notice.php"} />
                 </FooterInfoBlock>
 
                 <FooterInfoBlock>
                     <FooterInfo text={"Calle Matías Lara 24. 29640 Fuengirola (España)"} />
                     <FooterInfo text={"info@oksap.es"} mail={"info@oksap.es"} />
-                    <FooterInfo text={"Industry news"} link={"https://blog.oksap.es/"} />
+                    <FooterInfo text={t("footerIndustryNews")} link={"https://blog.oksap.es/"} />
                 </FooterInfoBlock>
 
                 <FooterLinks>

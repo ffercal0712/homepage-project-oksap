@@ -1,6 +1,7 @@
 import SectionTitle from "../SectionTitle.jsx";
 import AboutUsCards from "./AboutUsCards.jsx";
 import AboutUsCard from "./AboutUsCard.jsx";
+import {useTranslation} from "react-i18next";
 
 /**
  * Sección About Us (Sobre Nosotros).
@@ -10,6 +11,9 @@ import AboutUsCard from "./AboutUsCard.jsx";
  * @constructor
  */
 function AboutUsSection({ sectionTitle }) {
+
+    const { t } = useTranslation();
+
     return (
         <section id="about-us">
             <div className="about-us-container bg-section-alt">
@@ -18,33 +22,29 @@ function AboutUsSection({ sectionTitle }) {
                     <AboutUsCard
                         iconText={"AI"}
                         backgroundImg={"/src/img/about-us/d.jpg"}
-                        title={"Artificial Intelligence"}
-                        text={"AI applied to Human Resources processes"}
-                        link={"#"}
+                        title={t("aboutUs1Title")}
+                        text={t("aboutUs1Text")}
                     />
 
                     <AboutUsCard
                         iconImage={"/src/img/logos/logo_sap.png"}
                         backgroundImg={"/src/img/about-us/a.jpg"}
-                        title={"SAP HCM and Employee Central Payroll"}
-                        text={"New Implementations and Maintenances"}
-                        link={"#"}
+                        title={t("aboutUs2Title")}
+                        text={t("aboutUs2Text")}
                     />
 
                     <AboutUsCard
                         iconImage={"/src/img/icons/ico_ssff.png"}
                         backgroundImg={"/src/img/about-us/b.jpg"}
-                        title={"Success Factors Employee Central"}
-                        text={"Employee Central Core, Workshops, Requirements Definition, Functional Design, Business Blue Print, Build"}
-                        link={"#"}
+                        title={t("aboutUs3Title")}
+                        text={t("aboutUs3Text")}
                     />
 
                     <AboutUsCard
                         iconText={"HR"}
                         backgroundImg={"/src/img/about-us/c.jpg"}
-                        title={"Human Resources Processes"}
-                        text={"Spanish Payroll, Social Security, Taxes HR Processes"}
-                        link={"#"}
+                        title={t("aboutUs4Title")}
+                        text={t("aboutUs4Text")}
                     />
                 </AboutUsCards>
             </div>

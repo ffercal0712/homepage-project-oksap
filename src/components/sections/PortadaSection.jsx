@@ -12,11 +12,11 @@ export default function PortadaSection({ title, subtitle }) {
             <a href="https://www.instagram.com/oksap.spain/" target="_blank">
                 <img id={"img-ia"}
                      src={"/src/img/decoration/ia.png"}
-                     alt={"Sandra, Elias y Clara"}/>
+                     alt={"Sandra, Elias, Clara"}/>
             </a>
             <img id={"logo-portada"}
                  src={"/src/img/logos/logo_portada.jpg"}
-                 alt={"Logo de OKSAP"}/>
+                 alt={"OKSAP"}/>
             <h3>{title}</h3>
             <h6>{subtitle}</h6>
         </section>

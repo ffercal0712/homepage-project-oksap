@@ -1,5 +1,6 @@
 import Servicios from "./Servicios.jsx";
 import ServiciosElement from "./ServiciosElement.jsx";
+import { useTranslation } from "react-i18next";
 
 /**
  * Sección de Servicios.
@@ -8,31 +9,31 @@ import ServiciosElement from "./ServiciosElement.jsx";
  * @constructor
  */
 function ServiciosSection() {
+
+    const { t } = useTranslation();
+
     return (
         <section id="seccion-servicios">
             <Servicios>
                 <ServiciosElement
                     shade={0}
                     icon={"/src/img/icons/ico_mission.png"}
-                    alt={"Mission icon"}
-                    title={"Mission"}
-                    text={"To be the preferred destination for professionals seeking continuous growing within the SAP HR technologies to provide additional value to our clients."}
+                    title={t("servicio1Title")}
+                    text={t("servicio1Text")}
                 />
 
                 <ServiciosElement
                     shade={1}
                     icon={"/src/img/icons/ico_vision.png"}
-                    alt={"Vision icon"}
-                    title={"Vision"}
-                    text={"To build exceptional teams and enhance their performance in SAP consulting, constantly raising their level of expertise."}
+                    title={t("servicio2Title")}
+                    text={t("servicio2Text")}
                 />
 
                 <ServiciosElement
                     shade={0}
                     icon={"/src/img/icons/ico_values.png"}
-                    alt={"Values icon"}
-                    title={"Values"}
-                    text={"Specializing in SAP HR solutions with senior expertise in Spanish legal requirements."}
+                    title={t("servicio3Title")}
+                    text={t("servicio3Text")}
                 />
             </Servicios>
         </section>
