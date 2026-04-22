@@ -60,6 +60,10 @@
 
   /* propio */
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   html, body, #root {
     width: 100%;
     margin: 0;

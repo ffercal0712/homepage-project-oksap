@@ -65,8 +65,8 @@ function Header() {
                     <NavItem link={"#"} title={t("home")} />
                     <NavItem link={"#"} title={t("aiVideos")} />
                     <NavItem link={"#"} title={t("blog")} />
-                    <NavItem link={"#"} title={t("about")} />
-                    <NavItem link={"#"} title={t("contact")} />
+                    <NavItem link={"#about-us"} title={t("about")} />
+                    <NavItem link={"#contact"} title={t("contact")} />
                 </NavMenu>
 
             </div>

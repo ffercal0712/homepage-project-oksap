@@ -21,7 +21,7 @@ function Footer({ companyName, copyrightText, copyrightLink }) {
 
     return (
         <footer>
-            <div className="footer">
+            <div className="footer" id="contact">
                 <FooterCompany company={companyName} />
 
                 <FooterInfoBlock>
