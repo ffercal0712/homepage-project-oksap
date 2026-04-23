@@ -22,10 +22,15 @@
     --font-footer: "Montserrat", sans-serif;
 
     /* Colores de texto */
+    --color-portada-title: #ffffff;
+    --color-portada-subtitle: #c2dfe4;
     --section-title-color: rgb(230, 230, 230);
     --section-title-line-main-color: #616261;
     --section-title-line-secondary-color: #ddd;
-    --gradient-text: linear-gradient(90deg, #98b7ea, #ebebeb, #9f9d9d);
+    --gradient-text: linear-gradient(90deg, #98b7ea, #ebebeb, #F5A7CBFF);
+    --gradient-text-soft: linear-gradient(90deg, #c0d1ed, #ebebeb, #f4c6dc);
+    --gradient-text-reverse: linear-gradient(90deg, #F5A7CBFF, #ebebeb, #98b7ea);
+    --gradient-text-soft-reverse: linear-gradient(90deg, #f4c6dc, #ebebeb, #c0d1ed);
     --icon-link-color: #5c5c5c;
     --icon-link-hover-color: #8f8f8f;
     --footer-icon-link-color: #5c5c5c;
@@ -34,7 +39,19 @@
     /* Fondos */
     --bg-portada-gradient: linear-gradient(rgb(28, 28, 28), rgb(32, 32, 32));
     --bg-header: rgba(50, 50, 50, 0.95);
-    --bg-sky: linear-gradient(rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.00)), url("/src/img/decoration/sky.jpg");
+    --bg-sky-overlay: linear-gradient(
+            90deg,
+            rgba(152, 183, 234, 0.25),
+            rgba(235, 235, 235, 0.15),
+            rgba(245, 167, 203, 0.25)
+    );
+    --bg-sky-overlay-reverse: linear-gradient(
+            90deg,
+            rgba(245, 167, 203, 0.25),
+            rgba(235, 235, 235, 0.15),
+            rgba(152, 183, 234, 0.25)
+    );
+    --bg-sky-image: url("/src/img/decoration/sky.jpg");
     --bg-section: linear-gradient(rgb(28, 28, 28), rgb(32, 32, 32));
     --bg-section-alt: linear-gradient(rgb(16, 16, 16), rgb(23, 23, 23));
     --bg-servicios: #272727;
@@ -45,8 +62,8 @@
     --border-elem-servicios-hr-properties: 1px solid;
 
     /* Colores de bordes */
-    --border-elem-servicios: linear-gradient(90deg, rgb(225, 0, 0), rgb(0, 60, 177)) 1;
-    --border-elem-servicios-shade: linear-gradient(90deg, rgb(0, 60, 177), rgb(225, 0, 0)) 1;
+    --border-elem-servicios: linear-gradient(90deg, rgb(245, 167, 203), rgb(203, 238, 243)) 1;
+    --border-elem-servicios-shade: linear-gradient(90deg, rgb(203, 238, 243), rgb(245, 167, 203)) 1;
     --border-elem-servicios-hr: linear-gradient(90deg, rgb(213, 213, 213), rgb(94, 94, 94)) 1;
     --border-elem-servicios-shade-hr: linear-gradient(90deg, rgb(94, 94, 94), rgb(213, 213, 213)) 1;
 
@@ -56,6 +73,9 @@
 
     /* Imágenes del equipo */
     --team-img-visuals: grayscale(100%) brightness(105%) contrast(105%);
+
+    --oksap-silver: 203 238 243;
+    --oksap-accent: 245 167 203;
   }
 
   /* propio */
@@ -88,6 +108,36 @@
     background: var(--gradient-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-soft {
+    background: var(--gradient-text-soft);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-reverse {
+    background: var(--gradient-text-reverse);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-soft-reverse {
+    background: var(--gradient-text-soft-reverse);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-sap-glow {
+    color: #f7fbff;
+    text-shadow: 0 0 8px rgb(var(--oksap-silver) / .85), 0 0 18px rgb(var(--oksap-silver) / .75), 0 0 30px rgb(var(--oksap-accent) / .5), 0 0 46px rgb(var(--oksap-accent) / .34);
+    animation: sap-hr-glow 2.8s ease-in-out infinite;
+  }
+
+  @keyframes sap-hr-glow {
+    0%, 100% {
+      text-shadow: 0 0 8px rgb(var(--oksap-silver) / .85), 0 0 18px rgb(var(--oksap-silver) / .75), 0 0 32px rgb(var(--oksap-accent) / .45), 0 0 46px rgb(var(--oksap-accent) / .28);
+    }
   }
 
   /* Para: Cabecera/menú de navegación superior */
@@ -314,7 +364,7 @@
   }
 
   #seccion-portada h3 {
-    color: white;
+    color: var(--color-portada-title);
     text-shadow: 2px 2px 0 #808080;
     font-size: 60px;
     font-weight: 800;
@@ -327,7 +377,6 @@
   }
 
   #seccion-portada h6 {
-    text-shadow: 2px 3px 0 #4c4c4c;
     text-align: center;
     margin-top: 0;
 
@@ -339,7 +388,7 @@
     line-height: 1;
     font-weight: 800;
     letter-spacing: 3px;
-    color: #b8b8b8;
+    color: var(--color-portada-subtitle);
   }
 
   #img-ia {
@@ -453,13 +502,23 @@
     position: absolute;
     inset: 0;
 
-    background-image: var(--bg-sky);
+    background-image: var(--bg-sky-image);
 
     background-size: cover;
     background-attachment: fixed;
     background-position: top;
 
     filter: grayscale(100%);
+    z-index: -1;
+  }
+
+  #about-us::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: var(--bg-sky-overlay);
+
     z-index: -1;
   }
 
@@ -470,7 +529,8 @@
   }
 
   .section-title {
-    margin: 0;
+    margin: 0 auto;
+    width: fit-content;
     text-align: center;
 
     font-size: 32px;
@@ -478,6 +538,8 @@
     font-weight: 700;
     position: relative;
     padding-bottom: 15px;
+
+    display: block;
   }
 
   .section-title::before {
@@ -686,13 +748,23 @@
     position: absolute;
     inset: 0;
 
-    background-image: var(--bg-sky);
+    background-image: var(--bg-sky-image);
 
     background-size: cover;
     background-attachment: fixed;
     background-position: top;
 
     filter: grayscale(100%);
+    z-index: -1;
+  }
+
+  #team::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: var(--bg-sky-overlay-reverse);
+
     z-index: -1;
   }
 

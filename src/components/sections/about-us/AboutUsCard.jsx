@@ -44,7 +44,7 @@ function AboutUsCard({ iconText, iconImage, backgroundImg, title, text }) {
                     </div>
                 </div>
                 <div className="card-text">
-                    <h2>{title}</h2>
+                    <h2 className="gradient-text-soft-reverse">{title}</h2>
                     <p>{text}</p>
                 </div>
             </div>
@@ -60,7 +60,7 @@ function AboutUsCard({ iconText, iconImage, backgroundImg, title, text }) {
                     </div>
                 </div>
                 <div className="card-text">
-                    <h2>{title}</h2>
+                    <h2 className="gradient-text-soft-reverse">{title}</h2>
                     <p>{text}</p>
                 </div>
             </div>

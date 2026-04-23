@@ -18,7 +18,7 @@ export default function PortadaSection({ title, subtitle }) {
                  src={"/src/img/logos/logo_portada.jpg"}
                  alt={"OKSAP"}/>
             <h3>{title}</h3>
-            <h6>{subtitle}</h6>
+            <h6 className="gradient-text">{subtitle}</h6>
         </section>
     )
 }
